@@ -19,6 +19,7 @@ public class Autor {
     private boolean alta;
 
     public Autor() {
+        this.alta = true;
     }
 
     public Integer getId() {

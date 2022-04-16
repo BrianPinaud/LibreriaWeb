@@ -24,6 +24,7 @@ public class Editorial {
     }
 
     public Editorial() {
+        this.alta = true;
     }
 
     public Integer getId() {

@@ -38,6 +38,7 @@ public class Libro {
     }
 
     public Libro() {
+        this.alta = true;
     }
 
     public String getId() {
