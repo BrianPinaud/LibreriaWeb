@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EditorialRepositorio extends JpaRepository<Editorial, String> {
 
-    @Query("SELECT e FROM Editorial e WHERE e.id = :id")
-    public Editorial buscarPorId(@Param("id") Integer id);
-
     @Query("SELECT n FROM Editorial n WHERE n.nombre = :nombre")
     public Editorial buscarPorNombreEditorial(@Param("nombre") String nombre);
 }

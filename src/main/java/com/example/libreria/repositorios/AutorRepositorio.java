@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AutorRepositorio extends JpaRepository<Autor, String> {
 
-    @Query("SELECT a FROM Autor a WHERE a.id = :id")
-    public Autor buscarPorId(@Param("id") Integer id);
-
     @Query("SELECT n FROM Autor n WHERE n.nombre = :nombre")
     public Autor buscarPorNombreAutor(@Param("nombre") String nombre);
 }
