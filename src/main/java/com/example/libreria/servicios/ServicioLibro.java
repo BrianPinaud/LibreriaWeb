@@ -28,8 +28,8 @@ public class ServicioLibro {
         return l;
     }
 
-    public Libro modificarLibro(Boolean alta,String id, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Autor autor, Editorial editorial) throws Exception {
-        validaciones(titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, autor, editorial);
+    public Libro modificarLibro(Long isbn, Boolean alta,String id, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Autor autor, Editorial editorial) throws Exception {
+        validaciones(isbn,titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, autor, editorial);
         Optional<Libro> objetoTraido = libroRepositorio.findById(id);
         if (objetoTraido.isPresent()) {
             Libro libro = objetoTraido.get();
@@ -71,21 +71,25 @@ public class ServicioLibro {
 //    public void disminuirEjemplarRestante(Libro libro){
 //    libro.setEjemplaresRestantes(libro.getEjemplaresRestantes()-1);
 //    }
-    public void validaciones(String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Autor autor, Editorial editorial) throws Exception {
+    public void validaciones(Long isbn, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Autor autor, Editorial editorial) throws Exception {
 
+        
+        if ((isbn == null)||(isbn <= 0)) {
+            throw new Exception("isbn no puede ser null o negativo");
+        }
         if ((titulo == null) || (titulo.trim().isEmpty())) {
             throw new Exception("titulo no puede estar vacio o null");
         }
-        if ((anio == null) || (titulo.trim().isEmpty())) {
+        if ((anio == null) || (anio <= 0)) {
             throw new Exception("anio no puede estar vacio o null");
         }
-        if ((ejemplares == null) || (titulo.trim().isEmpty())) {
+        if ((ejemplares == null) || (ejemplares <= 0)) {
             throw new Exception("ejemplares no puede estar vacio o null");
         }
-        if ((ejemplaresPrestados == null) || (titulo.trim().isEmpty())) {
+        if ((ejemplaresPrestados == null) || (ejemplaresPrestados <= 0)) {
             throw new Exception("ejemplares Prestados no puede estar vacio o null");
         }
-        if ((ejemplaresRestantes == null) || (titulo.trim().isEmpty())) {
+        if ((ejemplaresRestantes == null) || (ejemplaresRestantes <= 0)) {
             throw new Exception("ejemplares restantes no puede estar vacio o null");
         }
         if ((editorial == null) || (titulo.trim().isEmpty())) {
