@@ -1,8 +1,8 @@
+.navbar {
+background-color: bisque;
 
-.header {
-
-    background-color: brown;
 }
+
 
 body{
     
@@ -10,19 +10,13 @@ body{
     background-size: 100rem;
 }
 
-.titulo{
-
+.contenedor{
     width: 45%;
     border-radius: 2em;
-    background-color: whitesmoke ;
-    opacity: 40%;
+    background-color: whitesmoke; 
+    opacity: 55%;
 }
 
-.bienvenido{
-    text-shadow: 3px 3px 2px whitesmoke;
-    color: black;
-    
-}
 
 .botonera{
     

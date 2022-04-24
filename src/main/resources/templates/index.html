@@ -11,25 +11,20 @@
 <body >
   
     <header class="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Biblioteca Virtual</a>
+          <a class="navbar-brand" href="#" style="color: black;">Biblioteca Virtual</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Libros</a>
+                <a class="nav-link active" aria-current="page" href="#" style="color: black;">Inicio</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Ver
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;"> Ver </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: antiquewhite;">
                   <li><a class="dropdown-item" href="#">Libros</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">Autores</a></li>
@@ -37,11 +32,11 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Cargar Libros</a>
+                <a class="nav-link disabled" style="color: red;">Cargar Libros</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscar en la Biblioteca Virtual" aria-label="Search">
+            <form class="d-flex" style="width: 25%;">
+              <input class="form-control me-2" type="search" placeholder="Buscar en la Biblioteca Virtual" aria-label="Search" style="background-color: whitesmoke;">
               <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
           </div>
@@ -50,12 +45,15 @@
     </header>
     <br>
     <div class="botonera" align="center">
-      <div class="titulo">
-    <h1 style="color: black;"> Bienvenido a la Biblioteca Virtual </h1>
+
+      <div class="contenedor">
+        <div class="texto-encima">
+        <h1 class="bienvenido" style="color: black;"> Bienvenido a la Biblioteca Virtual </h1>
       </div>
+    </div>
     <br>
-    <button type="button" class="btn btn-primary btn-lg" >Pasear por la Biblioteca</button>
-    <button type="button" class="btn btn-secondary btn-lg">Cargar Libros</button>
+    <button type="button" class="btn btn-primary btn-lg" style="background-color: #198754; border-color: black;" >Pasear por la Biblioteca</button>
+    <button type="button" class="btn btn-secondary btn-lg" style="background-color: brown; border-color: black;">Cargar Libros</button>
 </div>
 
 
