@@ -10,14 +10,22 @@ body{
     background-size: 100rem;
 }
 
+.titulo{
+
+    width: 45%;
+    border-radius: 2em;
+    background-color: whitesmoke ;
+    opacity: 40%;
+}
+
 .bienvenido{
-   
     text-shadow: 3px 3px 2px whitesmoke;
     color: black;
+    
 }
 
 .botonera{
-
+    
     margin-top: 19%;
 }
 
