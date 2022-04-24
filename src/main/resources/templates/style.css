@@ -1,0 +1,23 @@
+
+.header {
+
+    background-color: brown;
+}
+
+body{
+    
+    background-image: url(img/J4LE3HYF5JGS7C7DP6KMJW5SGM.webp);
+    background-size: 100rem;
+}
+
+.bienvenido{
+   
+    text-shadow: 3px 3px 2px whitesmoke;
+    color: black;
+}
+
+.botonera{
+
+    margin-top: 19%;
+}
+
