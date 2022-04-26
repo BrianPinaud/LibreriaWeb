@@ -2,24 +2,18 @@
 background-color: bisque;
 
 }
-
-
 body{
     
-    background-image: url(img/J4LE3HYF5JGS7C7DP6KMJW5SGM.webp);
+    background-image: url(/img/J4LE3HYF5JGS7C7DP6KMJW5SGM.webp);
     background-size: 100rem;
 }
-
 .contenedor{
     width: 45%;
     border-radius: 2em;
     background-color: rgba(255,255,255,0.6); 
     color:black ;
 }
-
-
 .botonera{
     
     margin-top: 19%;
 }
-

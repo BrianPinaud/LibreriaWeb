@@ -2,6 +2,7 @@ package com.example.libreria.servicios;
 
 import com.example.libreria.entidades.Editorial;
 import com.example.libreria.repositorios.EditorialRepositorio;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,12 +13,12 @@ public class ServicioEditorial {
     @Autowired
     private EditorialRepositorio editorialRepositorio;
 
-    public Editorial crear(String nombre, Boolean alta) throws Exception {
+    public Editorial crear(String nombre) throws Exception {
 
         validaciones(nombre);
         Editorial editorial = new Editorial();
         editorial.setNombre(nombre);
-        editorial.setAlta(alta);
+        
 
         return editorialRepositorio.save(editorial);
     }
@@ -61,6 +62,9 @@ public class ServicioEditorial {
         throw new Exception("no existe editorial con ese id");
         }
     
+    }
+    public List<Editorial>listarEditoriales(){
+       return editorialRepositorio.findAll();
     }
 
     public void validaciones(String nombre) throws Exception {
