@@ -23,7 +23,7 @@ public class ServicioEditorial {
         return editorialRepositorio.save(editorial);
     }
     
-    public Editorial modificar(String nombre, Boolean alta, String id) throws Exception{
+    public Editorial modificar(String nombre, String id) throws Exception{
     
         validaciones(nombre);
         Optional<Editorial>objetoTraido = editorialRepositorio.findById(id);
@@ -31,8 +31,6 @@ public class ServicioEditorial {
         if (objetoTraido.isPresent()) {
             Editorial editorial = objetoTraido.get();
             editorial.setNombre(nombre);
-            editorial.setAlta(alta);
-            
              return editorialRepositorio.save(editorial);
         }else {
         throw new Exception ("no existe editorial con ese id");
@@ -61,11 +59,22 @@ public class ServicioEditorial {
         }else{
         throw new Exception("no existe editorial con ese id");
         }
+      
+    }
     
-    }
+     public Editorial traerPorId(String id) throws Exception{
+            Optional<Editorial> respuesta = editorialRepositorio.findById(id);
+            if (respuesta.isPresent()) {
+                Editorial editorial = respuesta.get();
+                return editorial;
+         } else {
+                throw new Exception("no existe una editorial con ese id");
+            }
+        }
+    
     public List<Editorial>listarEditoriales(){
-       return editorialRepositorio.findAll();
-    }
+            return editorialRepositorio.findAll();
+        }
 
     public void validaciones(String nombre) throws Exception {
 
