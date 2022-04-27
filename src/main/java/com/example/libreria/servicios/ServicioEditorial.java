@@ -55,7 +55,6 @@ public class ServicioEditorial {
         if(editorial!=null) {
         editorial.setAlta(true);
         return editorialRepositorio.save(editorial);
-        
         }else{
         throw new Exception("no existe editorial con ese id");
         }

@@ -65,4 +65,26 @@ public class EditorialController {
         }
     }
     
+      @GetMapping("/baja/{id}")
+    public String darAaja(@PathVariable String id){
+        
+        try {
+            servicioEditorial.darBaja(id);
+            return "redirect:/editorial/lista";
+        } catch (Exception e) {
+            return "redirect:/";
+        }
+    }
+    
+    @GetMapping("/alta/{id}")
+    public String darAlta(@PathVariable String id){
+        
+        try {
+            servicioEditorial.darAlta(id);
+            return "redirect:/editorial/lista";
+        } catch (Exception e) {
+            return "redirect:/";
+        }
+    }
+    
 }

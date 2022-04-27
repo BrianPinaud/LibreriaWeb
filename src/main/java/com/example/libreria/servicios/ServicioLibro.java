@@ -3,7 +3,9 @@ package com.example.libreria.servicios;
 import com.example.libreria.entidades.Autor;
 import com.example.libreria.entidades.Editorial;
 import com.example.libreria.entidades.Libro;
+import com.example.libreria.repositorios.EditorialRepositorio;
 import com.example.libreria.repositorios.LibroRepositorio;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +30,7 @@ public class ServicioLibro {
         return l;
     }
 
-    public Libro modificarLibro(Long isbn, Boolean alta,String id, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Autor autor, Editorial editorial) throws Exception {
+    public Libro modificarLibro(Long isbn,String id, String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Autor autor, Editorial editorial) throws Exception {
         validaciones(isbn,titulo, anio, ejemplares, ejemplaresPrestados, ejemplaresRestantes, autor, editorial);
         Optional<Libro> objetoTraido = libroRepositorio.findById(id);
         if (objetoTraido.isPresent()) {
@@ -40,22 +42,59 @@ public class ServicioLibro {
             libro.setEjemplaresRestantes(ejemplaresRestantes);
             libro.setAutor(autor);
             libro.setEditorial(editorial);
-            libro.setAlta(alta);
+            //libro.setAlta(alta);
             return libroRepositorio.save(libro);
         } else {
             throw new Exception("no existe libro con ese id");
         }
 
     }
-
-    public void darBaja(Libro libro) {
-        libro.setAlta(Boolean.FALSE);
+    
+    public Libro traerPorId(String id) throws Exception{
+    Optional<Libro> respuesta = libroRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Libro libro = respuesta.get();
+            return libro;
+        } else {
+        throw new Exception("no existe un libro con ese id");
+        }
+    }
+    
+    public List<Libro>listarLibros(){
+        return libroRepositorio.findAll();
     }
 
-    public void darAlta(Libro libro) {
-        libro.setAlta(Boolean.TRUE);
+    public Libro darBaja(String id)throws Exception{
+        
+        Libro libro = libroRepositorio.getById(id);
+        if (libro != null) {
+            libro.setAlta(false);
+            return libroRepositorio.save(libro);
+        }else {
+        throw new Exception("no existe editorial con ese id");
+        }
+    
     }
-
+    
+    public Libro darAlta(String id) throws Exception{
+    
+        Libro libro = libroRepositorio.getById(id);
+        if(libro!=null) {
+        libro.setAlta(true);
+        return libroRepositorio.save(libro);
+        }else{
+        throw new Exception("no existe un libro con ese id");
+        }
+    }
+    
+    public List<Libro> buscarPorTitulo(String titulo) throws Exception{
+        
+        if(titulo != null && !titulo.trim().isEmpty()){
+            return libroRepositorio.buscarPorTitulo(titulo);
+        }else{
+            throw new Exception("No se encontro el titulo en la bdd");
+        }
+    }
 //    public void aumentarEjemplar(Libro libro){
 //    libro.setEjemplares(libro.getEjemplares()+1);
 //    }
